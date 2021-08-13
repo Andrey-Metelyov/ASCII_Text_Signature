@@ -1,0 +1,129 @@
+<h2 style="text-align: center;">Description</h2>
+
+<p>Now, let's change the font of the text. The new font will be larger and will consist of multiple rows and columns of standard console symbols.</p>
+
+<p>The new font is shown below:</p>
+
+<pre><code class="language-no-highlight">
+____ ___  ____ ___  ____ ____ ____ _  _ _  _ _  _ _    _  _
+|__| |__] |    |  \ |___ |___ | __ |__| |  | |_/  |    |\/|
+|  | |__] |___ |__/ |___ |    |__] |  | | _| | \_ |___ |  |
+_  _ ____ ___  ____ ____ ____ ___ _  _ _  _ _ _ _ _  _ _   _ ___ 
+|\ | |  | |__] |  | |__/ [__   |  |  | |  | | | |  \/   \_/    / 
+| \| |__| |    |_\| |  \ ___]  |  |__|  \/  |_|_| _/\_   |    /__
+
+</code></pre>
+
+<p>The tag contains the name and the status.</p>
+
+<p>The name includes the first and the last name separated by a space. It should be printed using the provided font.</p>
+
+<p>The status could be "VIP", "Employee", "Speaker", "Administrator", "Participant", or something else. These statuses should appear on the tag below the person's name. This information is not as important as the name, so it should be printed in a smaller font.</p>
+
+<p>In some cases, the width of the tag may have an even number of symbols, while the status has an odd number of symbols (or vice versa). In these cases, you cannot generate a horizontally centered status, since it will always be offset by one extra space on the left or on the right. In this case, your program should move the status to the left so there is one space less to the left of the status than to the right.</p>
+
+<h2 style="text-align: center;">Objectives </h2>
+
+<p>Your program should read a person's first and last names and status from standard input and create a personal name tag. The name should be printed with the provided font and the personal status with a regular font.</p>
+
+<p>The program has the following requirements:</p>
+
+<ul>
+	<li>
+	<p> Personal status is printed below the personal name.</p>
+	</li>
+	<li>
+	<p>The name and status should sit right in the middle of the line. If, due to the number of symbols, the status cannot be centered, the program should leave an extra space to the right of it.</p>
+	</li>
+	<li>
+	<p>If the name is longer than the status, leave two spaces to the left and to the right of the name. Otherwise, leave two spaces to the left and to the right of the status. Note that there should not be empty lines between the top border and the name.</p>
+	</li>
+</ul>
+
+<p>Some details about the font style:</p>
+
+<ul>
+	<li>
+	<p>The font has uppercase letters only. It is made of the following symbols:  <code class="java">'_'</code>, <code class="java">'|'</code>, <code class="java">'/'</code>, <code class="java">'\'</code>, <code class="java">']'</code>, <code class="java">'['</code> .</p>
+	</li>
+	<li>
+	<p>The first name and the last name should contain a column of single spaces between the adjacent letters for better readability.</p>
+	</li>
+	<li>
+	<p>The interval between the first and the last name should contain six spaces including indents.</p>
+	</li>
+</ul>
+
+<p>Hint:</p>
+
+<p>Every letter in the font is 3-symbol high and 4-symbol wide, except <code class="java">I</code>, <code class="java">J</code>, <code class="java">T</code>, <code class="java">W</code>, and <code class="java">Y</code>.</p>
+
+<p>For example, the letter <code class="java">“A”</code> is 3-symbol high and 4-symbol wide:</p>
+
+<p> <img alt="" height="202" src="https://lh5.googleusercontent.com/w1tL7gZELD24zYidCIH6dDhQTG5XqffC3YYXaG4KB8-CCuq5n7NKJBDXrWKEiTJn6n-XLHN8XK8s99ixGQeA-8Y4VSGllX8vRP2cU5LKsGMe0O5g5lwdz7_MOjhSn1DEZ_iKSKTf" width="166"></p>
+
+<p>As you can see, each letter contains a column of whitespaces as a delimiter.</p>
+
+<p><img alt="" height="166" src="https://lh6.googleusercontent.com/9Leo2DW-tQ3NrFe457Da6tzE7BRxrOjZ9jKd0zv8Bk4D_dMrCBWFKOAdjtbTJLWKq8YDPtDJuLaQVYeWvmgUqCIRhROw5yZIu_48cpEI4gE1gNJoReXFgeOq-9z0XplI0HtY4VG_" width="197"></p>
+
+<p>We suggest saving the font in one of the two following ways:</p>
+
+<p>1) Save the alphabet as an array of 3 string arrays containing the symbols of the three rows. Note that letters in the font are separated by a column of spaces:</p>
+
+<p> <img alt="" height="79" src="https://lh6.googleusercontent.com/mUU8wctC6as2QlhotDyhAUUnQg2mC_SCDZVOPw8svetXGqV3au_7gLUAHG_4ATagYE_QW0CJSja7ykT7cfJtp-sFMABJbm75xKTJjEGY_Zv9bPx-70s1DhR7aLhm11-FggKswEBJ" width="602"></p>
+
+<p>2) You can also save each letter as an array of string arrays (top, middle, bottom). Example:</p>
+
+<p><img alt="" height="28" src="https://lh6.googleusercontent.com/r9cFEn6iA9wXz0yNfwvkWoVs9FXyUaPKli8bX9ZuQ3w--403Vjv9iHbp95Pdqy0WE-CXg2iAp871XfRcgNe5Xzcd-Tf9UaTNJgZodELfTmaC8KBdKOTg8wb7WBiuzd--rtED6yru" width="456"></p>
+
+<p>Or you can think of a method of your own!</p>
+
+<h2 style="text-align: center;">Examples</h2>
+
+<p>Note that strings <code class="java">Enter the first and last name:</code> and <code class="java">Enter the person's status:</code> are not part of the input.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code class="language-no-highlight">Enter name and surname: Bill Gates
+Enter person's status: VIP
+***************************************************
+*  ___  _ _    _         ____ ____ ___ ____ ____  *
+*  |__] | |    |         | __ |__|  |  |___ [__   *
+*  |__] | |___ |___      |__] |  |  |  |___ ___]  *
+*                       VIP                       *
+***************************************************</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code class="language-no-highlight">Enter name and surname: Tom Smith
+Enter person's status: Worker
+*********************************************
+*  ___ ____ _  _      ____ _  _ _ ___ _  _  *
+*   |  |  | |\/|      [__  |\/| |  |  |__|  *
+*   |  |__| |  |      ___] |  | |  |  |  |  *
+*                  Worker                   *
+*********************************************</code></pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre><code class="language-no-highlight">Enter name and surname: Mr Anonimous
+Enter person's status: Participant
+**************************************************************
+*  _  _ ____      ____ _  _ ____ _  _ _ _  _ ____ _  _ ____  *
+*  |\/| |__/      |__| |\ | |  | |\ | | |\/| |  | |  | [__   *
+*  |  | |  \      |  | | \| |__| | \| | |  | |__| |__| ___]  *
+*                        Participant                         *
+**************************************************************
+</code></pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre><code class="language-no-highlight">Enter name and surname: John S
+Enter person's status: Worker-coworker-superdupercoworker
+****************************************
+*      _ ____ _  _ _  _      ____      *
+*      | |  | |__| |\ |      [__       *
+*     _| |__| |  | | \|      ___]      *
+*  Worker-coworker-superdupercoworker  *
+****************************************
+</code></pre>
