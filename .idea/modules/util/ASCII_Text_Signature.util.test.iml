@@ -19,8 +19,6 @@
               <option value="$MODULE_DIR$/../../../util/build/libs/util.jar" />
             </array>
           </option>
-          <option name="languageVersion" value="1.5" />
-          <option name="apiVersion" value="1.5" />
           <option name="pluginOptions">
             <array />
           </option>

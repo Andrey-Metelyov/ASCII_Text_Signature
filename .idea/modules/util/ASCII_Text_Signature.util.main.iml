@@ -12,8 +12,6 @@
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="util" />
-          <option name="languageVersion" value="1.5" />
-          <option name="apiVersion" value="1.5" />
           <option name="pluginOptions">
             <array />
           </option>
