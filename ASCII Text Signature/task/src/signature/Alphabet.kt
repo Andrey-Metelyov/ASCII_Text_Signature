@@ -29,7 +29,7 @@ class Alphabet {
         )
         private val f = arrayOf(
             "____",
-            "|---",
+            "|___",
             "|   "
         )
         private val g = arrayOf(
@@ -78,7 +78,7 @@ class Alphabet {
             "|__|"
         )
         private val p = arrayOf(
-            "___",
+            "___ ",
             "|__]",
             "|   "
         )
@@ -119,8 +119,8 @@ class Alphabet {
         )
         private val x = arrayOf(
             "_  _",
-            " \\/",
-            "_/ \\_"
+            " \\/ ",
+            "_/\\_"
         )
         private val y = arrayOf(
             "_   _",

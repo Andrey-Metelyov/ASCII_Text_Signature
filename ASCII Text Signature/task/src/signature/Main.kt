@@ -187,23 +187,24 @@ fun main() {
     printFrame(name, status)
 }
 
-fun printFrame(string: String, status: String) {
-    var len = string.length - 1
-    val symbolHeight = Alphabet.getHeight(string[0])
+fun printFrame(name: String, status: String) {
+    var lenName = name.length - 1
+    val lenStatus = status.length
+    val symbolHeight = Alphabet.getHeight(name[0])
     val lines = mutableListOf<MutableList<String>>()
     for (i in 1..symbolHeight) {
-        lines.add(mutableListOf<String>())
+        lines.add(mutableListOf())
     }
-    for (c in string) {
-        len += Alphabet.getWidth(c)
-//        System.err.print("${Alphabet.getWidth(c)} ")
+    for (c in name) {
+        lenName += Alphabet.getWidth(c)
         for (i in 0 until symbolHeight) {
             lines[i].add(Alphabet.get(c)[i])
         }
     }
-//    System.err.println()
 
-    repeat(len + 3 * 2) {
+    val lenTotal = if (lenName < lenStatus) lenStatus else lenName
+
+    repeat(lenTotal + 3 * 2) {
         print("*")
     }
     println()
@@ -211,23 +212,32 @@ fun printFrame(string: String, status: String) {
     for (i in 0 until symbolHeight) {
         var line = ""
         for (el in lines[i]) {
-            line += el + " "
+            line += "$el "
         }
-//        System.err.println("${lines[i].size} ${lines[i].joinToString(" ")}")
-        println("*  $line *")
+        print("*  ")
+        repeat((lenTotal - lenName) / 2) {
+            print(" ")
+        }
+        print(line)
+        repeat(lenTotal - (lenTotal - lenName) / 2 - lenName) {
+            print(" ")
+        }
+        println(" *")
     }
     print("*  ")
-    repeat(len / 2 - status.length / 2) {
+    repeat((lenName - lenStatus) / 2) {
         print(" ")
     }
     print(status)
-    repeat(len / 2 - status.length / 2 + 1 - status.length % 2 - (len - 1) % 2) {
+    repeat(lenName - (lenName - lenStatus) / 2 - lenStatus) {
         print(" ")
     }
     println("  *")
-    repeat(len + 3 * 2) {
+    repeat(lenTotal + 3 * 2) {
         print("*")
     }
-    System.err.println("len = $len")
-    System.err.println("status.len = ${status.length}")
+    println()
+//    System.err.println("len = $lenName")
+//    System.err.println("status.len = ${lenStatus}")
 }
+

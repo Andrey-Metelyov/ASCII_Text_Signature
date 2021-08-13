@@ -63,7 +63,7 @@ fun framed(lines: List<String>): String {
 }
 
 fun centeredLines(lines: List<String>): List<String> {
-    val maxLen = lines.map { it.length }.maxOrNull()!!
+    val maxLen = lines.map { it.length }.max()!!
 
     return lines.map { line ->
         val need = maxLen - line.length
