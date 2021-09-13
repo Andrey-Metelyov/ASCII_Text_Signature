@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
     }
 }
 
@@ -12,7 +12,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'kotlin'
 
-    sourceCompatibility = 1.8
+    sourceCompatibility = 11
 
     repositories {
         mavenCentral()
@@ -20,7 +20,7 @@ subprojects {
     }
 
     dependencies {
-        testImplementation 'com.github.hyperskill:hs-test:release-SNAPSHOT'
+        testImplementation 'com.github.hyperskill:hs-test:v8.2'
     }
 
     configurations.all {
