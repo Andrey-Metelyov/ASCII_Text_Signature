@@ -7,7 +7,23 @@ files:
     package signature
 
     fun main() {
-        println("Hello, World!")
+        printFrame("Hyper Skill")
+    }
+
+    fun printFrame(string: String) {
+        val len = string.length
+        print(" ")
+        repeat(len + 2) {
+            print("_")
+        }
+        println()
+        (" ")
+        println("| $string |")
+        print(" ")
+        repeat(len + 2) {
+            print("•")
+        }
+        print(" ")
     }
   learner_created: false
 - name: test/Task2Test.kt
@@ -111,7 +127,4 @@ files:
   learner_created: false
 feedback_link: https://hyperskill.org/projects/71/stages/391/implement#comment
 status: Solved
-feedback:
-  message: Congratulations!
-  time: Fri, 13 Aug 2021 04:54:41 UTC
-record: 2
+record: 1
