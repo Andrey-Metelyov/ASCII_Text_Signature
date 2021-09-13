@@ -1,220 +1,44 @@
 package signature
 
-//class Alphabet {
-//    companion object {
-//        private val a = arrayOf(
-//            "____",
-//            "|__|",
-//            "|  |"
-//        )
-//        private val b = arrayOf(
-//            "___",
-//            "|__]",
-//            "|__]"
-//        )
-//        private val c = arrayOf(
-//            "____",
-//            "|   ",
-//            "|___"
-//        )
-//        private val d = arrayOf(
-//            "___ ",
-//            "|  \\",
-//            "|__/"
-//        )
-//        private val e = arrayOf(
-//            "____",
-//            "|---",
-//            "|___"
-//        )
-//        private val f = arrayOf(
-//            "____",
-//            "|---",
-//            "|   "
-//        )
-//        private val g = arrayOf(
-//            "____",
-//            "| __",
-//            "|__]"
-//        )
-//        private val h = arrayOf(
-//            "_  _",
-//            "|  |",
-//            "|  |"
-//        )
-//        private val i = arrayOf(
-//            "_",
-//            "|",
-//            "|"
-//        )
-//        private val j = arrayOf(
-//            " _",
-//            " |",
-//            "_|"
-//        )
-//        private val k = arrayOf(
-//            "_  _",
-//            "|_/ ",
-//            "| \\_"
-//        )
-//        private val l = arrayOf(
-//            "_   ",
-//            "|   ",
-//            "|___"
-//        )
-//        private val m = arrayOf(
-//            "_  _",
-//            "|\\/|",
-//            "|  |"
-//        )
-//        private val n = arrayOf(
-//            "_  _",
-//            "|\\ |",
-//            "| \\|"
-//        )
-//        private val o = arrayOf(
-//            "____",
-//            "|  |",
-//            "|__|"
-//        )
-//        private val p = arrayOf(
-//            "___",
-//            "|__]",
-//            "|   "
-//        )
-//        private val q = arrayOf(
-//            "____",
-//            "|  |",
-//            "|_\\|"
-//        )
-//        private val r = arrayOf(
-//            "____",
-//            "|__/",
-//            "|  \\"
-//        )
-//        private val s = arrayOf(
-//            "____",
-//            "[__ ",
-//            "___]"
-//        )
-//        private val t = arrayOf(
-//            "___",
-//            " | ",
-//            " | "
-//        )
-//        private val u = arrayOf(
-//            "_  _",
-//            "|  |",
-//            "|__|"
-//        )
-//        private val v = arrayOf(
-//            "_  _",
-//            "|  |",
-//            " \\/ "
-//        )
-//        private val w = arrayOf(
-//            "_ _ _",
-//            "| | |",
-//            "|_|_|"
-//        )
-//        private val x = arrayOf(
-//            "_  _",
-//            " \\/",
-//            "_/ \\_"
-//        )
-//        private val y = arrayOf(
-//            "_   _",
-//            " \\_/ ",
-//            "  |  "
-//        )
-//        private val z = arrayOf(
-//            "___ ",
-//            "  / ",
-//            " /__"
-//        )
-//        private val space = arrayOf(
-//            "    ",
-//            "    ",
-//            "    "
-//        )
-//        private val letters = mapOf(
-//            ' ' to space,
-//            'a' to a,
-//            'b' to b,
-//            'c' to c,
-//            'd' to d,
-//            'e' to e,
-//            'f' to f,
-//            'g' to g,
-//            'h' to h,
-//            'i' to i,
-//            'j' to j,
-//            'k' to k,
-//            'l' to l,
-//            'm' to m,
-//            'n' to n,
-//            'o' to o,
-//            'p' to p,
-//            'q' to q,
-//            'r' to r,
-//            's' to s,
-//            't' to t,
-//            'u' to u,
-//            'v' to v,
-//            'w' to w,
-//            'x' to x,
-//            'y' to y,
-//            'z' to z
-//        )
-//        fun get(letter: Char): Array<String> {
-//            return letters[letter] ?: throw IllegalArgumentException("Unknown letter: $letter")
-//        }
-//
-//        fun getWidth(letter: Char): Int {
-//            return get(letter)[0].length
-//        }
-//        fun getHeight(letter: Char): Int {
-//            return get(letter).size
-//        }
-//    }
-//}
-
 fun main() {
     print("Enter name and surname: ")
-    val name = readLine()!!.lowercase()
+    val name = readLine()!!
     print("Enter person's status: ")
     val status = readLine()!!
     printFrame(name, status)
+//    printFrame("Ian One", "VIP")
 }
 
 fun printFrame(name: String, status: String) {
-    var lenName = name.length - 1
-    val lenStatus = status.length
-    val symbolHeight = Alphabet.getHeight(name[0])
-    val lines = mutableListOf<MutableList<String>>()
-    for (i in 1..symbolHeight) {
-        lines.add(mutableListOf())
-    }
-    for (c in name) {
-        lenName += Alphabet.getWidth(c)
-        for (i in 0 until symbolHeight) {
-            lines[i].add(Alphabet.get(c)[i])
-        }
-    }
+    val roman = Alphabet("c:/temp/roman.txt", 10)
+    val medium = Alphabet("c:/temp/medium.txt", 6)
+//    val symbolHeight = roman.height
+
+    val lenStatus = medium.length(status)
+    val lenName = roman.length(name)
+    System.err.println("lenStatus=$lenStatus, lenName=$lenName")
+    val romanLines = roman.lines(name)
+    val mediumLines = medium.lines(status)
 
     val lenTotal = if (lenName < lenStatus) lenStatus else lenName
+    val borderSize = 2 + (lenTotal + lenTotal % 2) / 2 + 1
+    System.err.println("lenTotal=$lenTotal")
+    System.err.println("$lenTotal / 2 + $lenTotal % 2 + 3 * 2 = ${lenTotal / 2 + lenTotal % 2 + 3 * 2}")
+    System.err.println("borderSize=$borderSize")
 
-    repeat(lenTotal + 3 * 2) {
-        print("*")
+//    repeat(lenTotal / 2 + lenTotal % 2 + 3 * 2) {
+    // upper border
+    repeat(borderSize) {
+        print("88")
     }
     println()
 
-    for (i in 0 until symbolHeight) {
+    for (i in 0 until roman.height) {
         var line = ""
-        for (el in lines[i]) {
-            line += "$el "
+        for (el in romanLines[i]) {
+            line += "$el"
         }
-        print("*  ")
+        print("88  ")
         repeat((lenTotal - lenName) / 2) {
             print(" ")
         }
@@ -222,22 +46,31 @@ fun printFrame(name: String, status: String) {
         repeat(lenTotal - (lenTotal - lenName) / 2 - lenName) {
             print(" ")
         }
-        println(" *")
+        println(" 88")
     }
-    print("*  ")
-    repeat((lenName - lenStatus) / 2) {
-        print(" ")
+
+//    print("88  ")
+//    repeat((lenName - lenStatus) / 2) {
+//        print(".")
+//    }
+
+    for (i in 0 until medium.height) {
+        var line = ""
+        for (el in mediumLines[i]) {
+            line += "$el"
+        }
+        print("88  ")
+        repeat((lenTotal - lenStatus) / 2) { print(" ") }
+
+        print(line)
+
+        repeat(borderSize * 2 - 6 - (lenTotal - lenStatus) / 2 - lenStatus - 1) { print(" ") }
+        println(" 88")
     }
-    print(status)
-    repeat(lenName - (lenName - lenStatus) / 2 - lenStatus) {
-        print(" ")
-    }
-    println("  *")
-    repeat(lenTotal + 3 * 2) {
-        print("*")
+
+    // lower border
+    repeat(borderSize) {
+        print("88")
     }
     println()
-//    System.err.println("len = $lenName")
-//    System.err.println("status.len = ${lenStatus}")
 }
-

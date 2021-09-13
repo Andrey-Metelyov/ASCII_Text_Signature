@@ -1472,20 +1472,36 @@ feedback:
   message: |-
     Wrong answer in test #1
 
-    Your output doesn&#39;t contain a signature, wrapped in &#39;8&#39; symbols.
+    Wrong output for input lines &quot;Ian One&quot; and &quot;VIP&quot;. Some indentation in your signature is incorrect. This test corresponds to the example #1.
 
     Please find below the output of your program during this failed test.
     Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
 
     ---
 
+    stdout:
     Enter name and surname: &gt; Ian One
     Enter person&#39;s status: &gt; VIP
-    *************************************
-    *  _ ____ _  _      ____ _  _ ____  *
-    *  | |__| |\ |      |  | |\ | |___  *
-    *  | |  | | \|      |__| | \| |___  *
-    *                VIP                *
-    *************************************
-  time: Mon, 13 Sep 2021 05:15:18 UTC
+    88888888888888888888888888888888888888888888888888888888888888888888888888888888
+    88  ooooo                                   .oooooo.                          88
+    88  `888&#39;                                  d8P&#39;  `Y8b                         88
+    88   888   .oooo.   ooo. .oo.             888      888 ooo. .oo.    .ooooo.   88
+    88   888  `P  )88b  `888P&quot;Y88b            888      888 `888P&quot;Y88b  d88&#39; `88b  88
+    88   888   .oP&quot;888   888   888            888      888  888   888  888ooo888  88
+    88   888  d8(  888   888   888            `88b    d88&#39;  888   888  888    .o  88
+    88  o888o `Y888&quot;&quot;8o o888o o888o            `Y8bood8P&#39;  o888o o888o `Y8bod8P&#39;  88
+    88                                                                            88
+    88                                                                            88
+    88                                                                            88
+    88                                _  _ _ ___                                  88
+    88                                |  | | |__]                                 88
+    88                                 \/  | |                                    88
+    88888888888888888888888888888888888888888888888888888888888888888888888888888888
+
+    stderr:
+    lenStatus=12, lenName=73
+    lenTotal=73
+    73 / 2 + 73 % 2 + 3 * 2 = 43
+    borderSize=40
+  time: Mon, 13 Sep 2021 08:23:03 UTC
 record: -1
