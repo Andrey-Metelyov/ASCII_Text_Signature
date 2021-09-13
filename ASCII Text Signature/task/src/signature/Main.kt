@@ -11,7 +11,7 @@ fun main() {
 
 fun printFrame(name: String, status: String) {
     val roman = Alphabet("c:/temp/roman.txt", 10)
-    val medium = Alphabet("c:/temp/medium.txt", 6)
+    val medium = Alphabet("c:/temp/medium.txt", 5)
 //    val symbolHeight = roman.height
 
     val lenStatus = medium.length(status)
@@ -21,56 +21,50 @@ fun printFrame(name: String, status: String) {
     val mediumLines = medium.lines(status)
 
     val lenTotal = if (lenName < lenStatus) lenStatus else lenName
-    val borderSize = 2 + (lenTotal + lenTotal % 2) / 2 + 1
+    val borderSize = 2 + 2 + lenTotal + 2 + 2
     System.err.println("lenTotal=$lenTotal")
     System.err.println("$lenTotal / 2 + $lenTotal % 2 + 3 * 2 = ${lenTotal / 2 + lenTotal % 2 + 3 * 2}")
     System.err.println("borderSize=$borderSize")
 
-//    repeat(lenTotal / 2 + lenTotal % 2 + 3 * 2) {
     // upper border
-    repeat(borderSize) {
-        print("88")
-    }
+    repeat(borderSize) { print("8") }
     println()
+
+    var spacesLeft = (lenTotal - lenName) / 2
+    var spacesRight = lenTotal - spacesLeft - lenName
 
     for (i in 0 until roman.height) {
         var line = ""
         for (el in romanLines[i]) {
-            line += "$el"
+            line += el
         }
         print("88  ")
-        repeat((lenTotal - lenName) / 2) {
-            print(" ")
-        }
+        repeat(spacesLeft) { print(" ") }
+
         print(line)
-        repeat(lenTotal - (lenTotal - lenName) / 2 - lenName) {
-            print(" ")
-        }
-        println(" 88")
+
+        repeat(spacesRight) { print(" ") }
+        println("  88")
     }
 
-//    print("88  ")
-//    repeat((lenName - lenStatus) / 2) {
-//        print(".")
-//    }
+    spacesLeft = (lenTotal - lenStatus) / 2
+    spacesRight = lenTotal - spacesLeft - lenStatus
 
     for (i in 0 until medium.height) {
         var line = ""
         for (el in mediumLines[i]) {
-            line += "$el"
+            line += el
         }
         print("88  ")
-        repeat((lenTotal - lenStatus) / 2) { print(" ") }
+        repeat(spacesLeft) { print(" ") }
 
         print(line)
 
-        repeat(borderSize * 2 - 6 - (lenTotal - lenStatus) / 2 - lenStatus - 1) { print(" ") }
-        println(" 88")
+        repeat(spacesRight) { print(" ") }
+        println("  88")
     }
 
     // lower border
-    repeat(borderSize) {
-        print("88")
-    }
+    repeat(borderSize) { print("8") }
     println()
 }
